@@ -1,0 +1,477 @@
+{
+ "version": "2026.10.7+synthetic",
+ "instance_name": "searxng",
+ "engines": [
+  {
+   "name": "bing",
+   "categories": [
+    "general",
+    "web"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": true,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "bi",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "yahoo",
+   "categories": [
+    "general",
+    "web"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": true,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "yh",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "yandex",
+   "categories": [
+    "general"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "yd",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "wikipedia",
+   "categories": [
+    "general"
+   ],
+   "enabled": true,
+   "paging": false,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "wp",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "wikidata",
+   "categories": [
+    "general"
+   ],
+   "enabled": true,
+   "paging": false,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "wd",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "duckduckgo",
+   "categories": [
+    "general",
+    "web"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": true,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "ddg",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "yep",
+   "categories": [
+    "general"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "yep",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "google cse",
+   "categories": [
+    "general",
+    "web"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "gcse",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "currency",
+   "categories": [
+    "general"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "cc",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "google",
+   "categories": [
+    "general",
+    "web"
+   ],
+   "enabled": false,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "go",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "brave",
+   "categories": [
+    "general",
+    "web"
+   ],
+   "enabled": false,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "br",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "stackoverflow",
+   "categories": [
+    "it",
+    "q&a"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "st",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "askubuntu",
+   "categories": [
+    "it",
+    "q&a"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "ubuntu",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "superuser",
+   "categories": [
+    "it",
+    "q&a"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "su",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "github",
+   "categories": [
+    "it",
+    "repos"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "gh",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "mdn",
+   "categories": [
+    "it"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "mdn",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "arch linux wiki",
+   "categories": [
+    "it",
+    "software wikis"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "al",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "pypi",
+   "categories": [
+    "it",
+    "packages"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "pypi",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "docker hub",
+   "categories": [
+    "it",
+    "packages"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "dh",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "hoogle",
+   "categories": [
+    "it",
+    "packages"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "ho",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "arxiv",
+   "categories": [
+    "science",
+    "scientific publications"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "arx",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "pubmed",
+   "categories": [
+    "science",
+    "scientific publications"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "pub",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "europepmc",
+   "categories": [
+    "science",
+    "scientific publications"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "epmc",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "google scholar",
+   "categories": [
+    "science",
+    "scientific publications"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "gos",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "openairepublications",
+   "categories": [
+    "science"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "oap",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "bing news",
+   "categories": [
+    "news"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": true,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "bin",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "wikinews",
+   "categories": [
+    "news",
+    "wikimedia"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "wn",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "wiktionary",
+   "categories": [
+    "dictionaries",
+    "wikimedia"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "wt",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "etymonline",
+   "categories": [
+    "dictionaries"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "et",
+   "regions": [],
+   "languages": []
+  },
+  {
+   "name": "wordnik",
+   "categories": [
+    "dictionaries",
+    "define"
+   ],
+   "enabled": true,
+   "paging": true,
+   "time_range_support": false,
+   "language_support": true,
+   "safesearch": false,
+   "timeout": 3.0,
+   "shortcut": "def",
+   "regions": [],
+   "languages": []
+  }
+ ]
+}

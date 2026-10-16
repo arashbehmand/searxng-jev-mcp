@@ -1,0 +1,177 @@
+# Hand-written routing catalog. Combined at runtime with SearXNG's /config (only engines that are
+# enabled on the instance are ever used). Override with CATALOG_PATH=/path/to/catalog.yaml.
+#
+# covers / not_for: one line each, shown to the decision model in routing questions.
+# quota: true  -> never speculate on it; requests are metered by the buckets below.
+# shape: keywords -> the engine gets a short keyword form of the query (vertical APIs handle long
+#                    natural-language queries badly).
+
+categories:
+  general:
+    covers: "the open web: documentation, articles, blogs, vendor pages, forums, reference sites"
+    not_for: "nothing in particular; it is the default"
+  news:
+    covers: "recent news reports and announcements from news outlets"
+    not_for: "evergreen how-to, reference or technical documentation"
+  science:
+    covers: "research papers, preprints, abstracts and datasets"
+    not_for: "product pages, tutorials, programming errors, current events"
+  it:
+    covers: "code, error messages, libraries, APIs, CLIs, developer documentation and repositories"
+    not_for: "consumer tech news or non-technical questions"
+  q&a:
+    covers: "question-and-answer threads about programming, Linux and computer use (Stack Exchange)"
+    not_for: "research papers, news, or questions outside computing"
+  packages:
+    covers: "software package registries (PyPI, Docker Hub, Hoogle): package names, versions, install pages"
+    not_for: "explanations, tutorials or error troubleshooting"
+  repos:
+    covers: "source-code repositories on GitHub"
+    not_for: "general explanations or news"
+  dictionaries:
+    covers: "word definitions, etymology, translations and usage"
+    not_for: "anything that is not about the meaning or origin of a word"
+  wikimedia:
+    covers: "Wikipedia-family reference articles and structured facts about entities"
+    not_for: "how-to questions, code errors, current prices"
+
+engines:
+  # science
+  arxiv:
+    category: science
+    covers: "preprints in physics, computer science, mathematics, statistics, quantitative biology"
+    not_for: "medicine and clinical studies, humanities"
+    shape: keywords
+  pubmed:
+    category: science
+    covers: "biomedical and life-science journal abstracts, clinical studies"
+    not_for: "computer science, physics, engineering"
+    shape: keywords
+  europepmc:
+    category: science
+    covers: "biomedical literature with open full text (Europe PMC)"
+    not_for: "computer science, physics"
+    shape: keywords
+  google scholar:
+    category: science
+    covers: "scholarly literature across all fields"
+    not_for: "non-academic questions"
+    quota: true
+    shape: keywords
+  openairepublications:
+    category: science
+    covers: "European open-access publications and project outputs"
+    not_for: "non-academic questions"
+    shape: keywords
+  # it / q&a / packages / repos
+  github:
+    category: repos
+    covers: "source-code repositories: libraries, tools, example projects"
+    not_for: "explanations, error troubleshooting, news"
+    quota: true
+    shape: keywords
+  stackoverflow:
+    category: q&a
+    covers: "programming questions and error messages with community answers"
+    not_for: "research, news, non-programming topics"
+    quota: true
+    shape: keywords
+  askubuntu:
+    category: q&a
+    covers: "Ubuntu and Linux desktop/server usage questions"
+    not_for: "programming language questions, non-Linux topics"
+    quota: true
+    shape: keywords
+  superuser:
+    category: q&a
+    covers: "computer hardware and software usage questions for power users"
+    not_for: "programming, research"
+    quota: true
+    shape: keywords
+  mdn:
+    category: it
+    covers: "web platform reference: HTML, CSS, JavaScript, Web APIs, HTTP"
+    not_for: "Python, systems programming, non-web topics"
+  docker hub:
+    category: packages
+    covers: "container images and their tags"
+    not_for: "general explanations"
+    shape: keywords
+  pypi:
+    category: packages
+    covers: "Python packages: names, versions, project pages"
+    not_for: "non-Python topics, explanations"
+    shape: keywords
+  hoogle:
+    category: packages
+    covers: "Haskell functions and type signatures"
+    not_for: "anything that is not Haskell"
+  arch linux wiki:
+    category: it
+    covers: "Linux system administration and configuration guides"
+    not_for: "programming language questions, non-Linux topics"
+  # wikimedia / reference
+  wikipedia:
+    category: general
+    covers: "encyclopedia articles about entities, concepts, places, events"
+    not_for: "how-to steps, code errors, current prices"
+  wikidata:
+    category: general
+    covers: "structured facts about entities"
+    not_for: "explanations, how-to, code"
+  # news
+  bing news:
+    category: news
+    covers: "recent news articles"
+    not_for: "evergreen or technical reference"
+  wikinews:
+    category: news
+    covers: "community-written news reports"
+    not_for: "evergreen or technical reference"
+  # dictionaries
+  wiktionary:
+    category: dictionaries
+    covers: "definitions, pronunciation and translations of words"
+    not_for: "facts about entities"
+  etymonline:
+    category: dictionaries
+    covers: "English word origins"
+    not_for: "non-English words, definitions of technical terms"
+  wordnik:
+    category: dictionaries
+    covers: "English definitions and example sentences"
+    not_for: "non-English words"
+
+# Engines asked for each category when routing selects it (in priority order, capped).
+category_engines:
+  news: [bing news, wikinews]
+  science: [arxiv, pubmed, europepmc, openairepublications, google scholar]
+  it: [stackoverflow, github, mdn, arch linux wiki]
+  q&a: [stackoverflow, askubuntu, superuser]
+  packages: [pypi, docker hub, hoogle]
+  repos: [github]
+  dictionaries: [wiktionary, etymonline, wordnik]
+  wikimedia: [wikipedia, wikidata]
+
+# General baseline: core engines always used when enabled; flaky ones only when health is good.
+general:
+  core: [bing, yahoo, yandex, wikipedia]
+  conditional: [duckduckgo, yep]
+  flagged: [google cse]  # ENABLE_GOOGLE_CSE, auto-disabled on 2027-01-01
+  # Bing and Yahoo return the same index: one voter wherever agreement matters.
+  same_voter: [[bing, yahoo]]
+
+# Quota buckets: requests per window, persisted across sessions.
+quota:
+  stackexchange:
+    engines: [stackoverflow, askubuntu, superuser]
+    limit: 250
+    window_s: 86400
+  github:
+    engines: [github]
+    limit: 8
+    window_s: 60
+  google scholar:
+    engines: [google scholar]
+    limit: 10
+    window_s: 3600

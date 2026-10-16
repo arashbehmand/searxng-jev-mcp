@@ -1,0 +1,61 @@
+{
+ "query": "python asyncio gather exceptions",
+ "results": [
+  {
+   "template": "default.html",
+   "url": "https://stackoverflow.com/questions/54987361/python-asyncio-handling-exceptions-in-gather",
+   "title": "Python asyncio - handling exceptions in gather - Stack Overflow",
+   "content": "Use return_exceptions=True so gather returns exceptions as results instead of raising the first one.",
+   "engine": "stackoverflow",
+   "engines": [
+    "stackoverflow"
+   ],
+   "positions": [
+    1
+   ],
+   "score": 1.0,
+   "category": "it",
+   "publishedDate": null,
+   "parsed_url": []
+  },
+  {
+   "template": "default.html",
+   "url": "https://stackoverflow.com/questions/30361824/asynchronous-exception-handling-in-python",
+   "title": "Asynchronous exception handling in Python",
+   "content": "For your use-case, it probably makes more sense to use asyncio.wait.",
+   "engine": "stackoverflow",
+   "engines": [
+    "stackoverflow"
+   ],
+   "positions": [
+    2
+   ],
+   "score": 0.5,
+   "category": "it",
+   "publishedDate": null,
+   "parsed_url": []
+  },
+  {
+   "template": "default.html",
+   "url": "https://github.com/example-org/aio-tools",
+   "title": "example-org/aio-tools: asyncio helpers",
+   "content": "Helpers for gather with exception groups.",
+   "engine": "github",
+   "engines": [
+    "github"
+   ],
+   "positions": [
+    1
+   ],
+   "score": 1.0,
+   "category": "it",
+   "publishedDate": null,
+   "parsed_url": []
+  }
+ ],
+ "answers": [],
+ "corrections": [],
+ "infoboxes": [],
+ "suggestions": [],
+ "unresponsive_engines": []
+}

@@ -1,0 +1,163 @@
+{
+ "query": "python asyncio gather exceptions",
+ "results": [
+  {
+   "template": "default.html",
+   "url": "https://example.org/python/asyncio-gather/",
+   "title": "Python asyncio.gather() - Run Multiple Asynchronous Operations",
+   "content": "Introduction to asyncio.gather(). Handle exceptions with return_exceptions=True.",
+   "engine": "yahoo",
+   "engines": [
+    "yahoo",
+    "yandex"
+   ],
+   "positions": [
+    3,
+    3
+   ],
+   "score": 1.333,
+   "category": "general",
+   "publishedDate": null,
+   "parsed_url": []
+  },
+  {
+   "template": "default.html",
+   "url": "https://www.python.org/",
+   "title": "Welcome to Python.org",
+   "content": "The official home of the Python Programming Language.",
+   "engine": "bing",
+   "engines": [
+    "bing"
+   ],
+   "positions": [
+    1
+   ],
+   "score": 1.0,
+   "category": "general",
+   "publishedDate": null,
+   "parsed_url": []
+  },
+  {
+   "template": "default.html",
+   "url": "https://docs.example.com/3/library/asyncio-task.html",
+   "title": "Coroutines and tasks \u2014 Python 3.14 documentation",
+   "content": "awaitable asyncio.gather(*aws, return_exceptions=False). Run awaitable objects concurrently. If return_exceptions is False, the first raised exception is propagated.",
+   "engine": "yahoo",
+   "engines": [
+    "yahoo",
+    "yandex"
+   ],
+   "positions": [
+    7,
+    2
+   ],
+   "score": 1.2857,
+   "category": "general",
+   "publishedDate": "2026-09-30T00:00:00",
+   "parsed_url": []
+  },
+  {
+   "template": "default.html",
+   "url": "https://blog.example.net/asyncio-gather-exception/",
+   "title": "Asyncio gather() Handle Exceptions",
+   "content": "In this tutorial, you will discover how to handle exceptions raised by tasks in asyncio.gather().",
+   "engine": "yahoo",
+   "engines": [
+    "yahoo"
+   ],
+   "positions": [
+    1
+   ],
+   "score": 1.0,
+   "category": "general",
+   "publishedDate": null,
+   "parsed_url": []
+  },
+  {
+   "template": "default.html",
+   "url": "http://qa.example.com/questions/54987361/python-asyncio-handling-exceptions-in-gather",
+   "title": "Python asyncio - handling exceptions in gather",
+   "content": "The gather function is primarily designed for the scatter-gather pattern.",
+   "engine": "yahoo",
+   "engines": [
+    "yahoo"
+   ],
+   "positions": [
+    2
+   ],
+   "score": 0.5,
+   "category": "general",
+   "publishedDate": null,
+   "parsed_url": []
+  },
+  {
+   "template": "default.html",
+   "url": "https://www.online-compiler.example/python?utm_source=bing&utm_medium=cpc",
+   "title": "Online Python Compiler",
+   "content": "Write and run Python code online.",
+   "engine": "bing",
+   "engines": [
+    "bing"
+   ],
+   "positions": [
+    3
+   ],
+   "score": 0.333,
+   "category": "general",
+   "publishedDate": null,
+   "parsed_url": []
+  },
+  {
+   "template": "default.html",
+   "url": "https://en.wikipedia.org/wiki/Python_(programming_language)",
+   "title": "Python (programming language) - Wikipedia",
+   "content": "Python is a high-level, general-purpose programming language.",
+   "engine": "bing",
+   "engines": [
+    "bing",
+    "wikipedia"
+   ],
+   "positions": [
+    6,
+    1
+   ],
+   "score": 2.333,
+   "category": "general",
+   "publishedDate": null,
+   "parsed_url": []
+  },
+  {
+   "template": "default.html",
+   "url": "https://tutorials.example.io/python-asyncio-gather/",
+   "title": "asyncio.gather complete guide",
+   "content": "Learn how to use asyncio.gather for concurrent execution and exception handling.",
+   "engine": "yandex",
+   "engines": [
+    "yandex"
+   ],
+   "positions": [
+    7
+   ],
+   "score": 0.143,
+   "category": "general",
+   "publishedDate": null,
+   "parsed_url": []
+  }
+ ],
+ "answers": [],
+ "corrections": [],
+ "infoboxes": [],
+ "suggestions": [
+  "python asyncio gather exceptions example"
+ ],
+ "unresponsive_engines": [
+  [
+   "duckduckgo",
+   "timeout"
+  ],
+  [
+   "yep",
+   "timeout"
+  ]
+ ]
+}

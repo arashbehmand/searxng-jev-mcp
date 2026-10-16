@@ -1,0 +1,26 @@
+{
+ "query": "kubernetes pod crashloopbackoff",
+ "results": [],
+ "answers": [],
+ "corrections": [],
+ "infoboxes": [],
+ "suggestions": [],
+ "unresponsive_engines": [
+  [
+   "bing",
+   "timeout"
+  ],
+  [
+   "yahoo",
+   "timeout"
+  ],
+  [
+   "yandex",
+   "Suspended: CAPTCHA"
+  ],
+  [
+   "wikipedia",
+   "timeout"
+  ]
+ ]
+}

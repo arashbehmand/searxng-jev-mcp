@@ -1,0 +1,96 @@
+[project]
+name = "searxng-jev-mcp"
+version = "0.1.0"
+description = "MCP search server for a self-hosted SearXNG, with BM25F ranking and optional Jev-compatible decision-model routing and reranking."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+authors = [{ name = "Arash Behmand" }]
+keywords = ["mcp", "searxng", "search", "rerank", "bm25", "jev", "model-context-protocol"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
+]
+dependencies = [
+  "mcp>=2.3,<3",
+  "httpx>=0.28,<1",
+  "pydantic>=2.13,<3",
+  "pydantic-settings>=2.15,<3",
+  "python-dotenv>=1.2",
+  "structlog>=26.1",
+  "wordfreq>=3.1,<4",
+  "keyring>=25.7",
+  "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+# Local cross-encoder, used as the eval's free competitor (heavy: pulls torch).
+crossencoder = ["sentence-transformers>=5.0"]
+
+[project.scripts]
+searxng-jev-mcp = "searxng_jev_mcp.server:main"
+
+[project.urls]
+Repository = "https://github.com/arashbehmand/searxng-jev-mcp"
+Issues = "https://github.com/arashbehmand/searxng-jev-mcp/issues"
+
+[dependency-groups]
+dev = [
+  "pytest>=9.1",
+  "pytest-asyncio>=1.4",
+  "ruff>=0.16",
+  "pyright>=1.1.414",
+]
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/searxng_jev_mcp"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "src/searxng_jev_mcp", "tests", "README.md", "LICENSE", "CONTRIBUTING.md", ".env.example",
+  "docs/architecture.md", "docs/evaluation.md", "docs/privacy.md", "docs/providers.md", "docs/verified-facts.md",
+]
+exclude = ["eval/private", "eval/snapshots", "**/.env", "**/.env.local", "**/NOTES.local.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+markers = ["live: hits the live SearXNG / decision provider (skipped unless LIVE_TESTS=1)"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+src = ["src", "tests", "eval", "scripts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF", "ASYNC", "PT"]
+# RUF001-3: Persian/Arabic and typographic characters are intentional. PT018: composite asserts are fine.
+# E501: the formatter wraps code; remaining long lines are strings and URLs.
+ignore = ["RUF001", "RUF002", "RUF003", "PT018", "E501"]
+
+[tool.ruff.lint.per-file-ignores]
+# one-off scripts: small blocking file reads inside asyncio.run() are fine
+"scripts/*" = ["ASYNC240"]
+"eval/*" = ["ASYNC240"]
+
+[tool.ruff.lint.isort]
+known-local-folder = ["common", "replay", "metrics", "judge", "snapshot", "report", "routing", "variants", "kappa", "tune", "assess_eval", "routing_e2e", "guard_variants", "model_compare"]
+
+[tool.pyright]
+extraPaths = ["eval", "scripts"]
+include = ["src", "tests", "eval", "scripts"]
+pythonVersion = "3.12"
+typeCheckingMode = "standard"
+venvPath = "."
+venv = ".venv"

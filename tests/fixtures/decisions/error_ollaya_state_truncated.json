@@ -1,0 +1,1 @@
+{"error": "state: part of state was dropped to fit the context of winnow:e4b", "code": "STATE_TRUNCATED", "detail": [{"type": "state_truncated", "loc": ["body", "state"], "msg": "part of state was dropped to fit the context of winnow:e4b", "ctx": {"model": "winnow:e4b"}}]}

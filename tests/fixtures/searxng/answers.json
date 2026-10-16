@@ -1,0 +1,40 @@
+{
+ "query": "100 usd to eur",
+ "results": [
+  {
+   "template": "default.html",
+   "url": "https://en.wikipedia.org/wiki/Euro",
+   "title": "Euro - Wikipedia",
+   "content": "The euro is the official currency of 20 member states.",
+   "engine": "wikipedia",
+   "engines": [
+    "wikipedia"
+   ],
+   "positions": [
+    1
+   ],
+   "score": 1.0,
+   "category": "general",
+   "publishedDate": null,
+   "parsed_url": []
+  }
+ ],
+ "answers": [
+  {
+   "answer": "100 USD = 86.1 EUR",
+   "url": "https://currency.example/",
+   "engine": "currency"
+  }
+ ],
+ "corrections": [],
+ "infoboxes": [
+  {
+   "infobox": "Euro",
+   "id": "https://en.wikipedia.org/wiki/Euro",
+   "content": "Currency of the eurozone",
+   "engine": "wikipedia"
+  }
+ ],
+ "suggestions": [],
+ "unresponsive_engines": []
+}

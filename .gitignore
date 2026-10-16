@@ -1,0 +1,19 @@
+# private, never commit
+.env.local
+.env
+NOTES.local.md
+eval/private/
+eval/snapshots/
+
+# local state and build output
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+dist/
+build/
+*.egg-info/
+.DS_Store

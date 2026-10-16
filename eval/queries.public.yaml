@@ -1,0 +1,72 @@
+# Public eval queries (public topics only). Personal queries live in eval/private/ (gitignored).
+#
+# stratum: code | science | news | howto | nav | operator | i18n
+# targets: known-item URL prefixes (matched against canonical URLs; MRR without a judge)
+# hint: the category a caller might pass (used by the "caller hint" routing arm)
+# inject: true -> replay adds a synthetic prompt-injection result to the pool (adversarial slice)
+
+queries:
+  # --- code / errors
+  - {id: p01, q: "python asyncio gather return_exceptions", stratum: code, hint: it, targets: ["docs.python.org/3/library/asyncio-task.html"]}
+  - {id: p02, q: "rust error E0308 mismatched types", stratum: code, hint: it, targets: ["doc.rust-lang.org/error_codes/E0308.html", "doc.rust-lang.org/error-index.html"], inject: true}
+  - {id: p03, q: "git rebase onto another branch", stratum: code, hint: it, targets: ["git-scm.com/docs/git-rebase"]}
+  - {id: p04, q: "ERR_SSL_PROTOCOL_ERROR chrome localhost", stratum: code, hint: q&a}
+  - {id: p05, q: "typescript TS2345 argument of type is not assignable to parameter of type", stratum: code, hint: q&a, inject: true}
+  - {id: p06, q: "docker compose depends_on condition service_healthy", stratum: code, hint: it}
+  - {id: p07, q: "kubernetes pod CrashLoopBackOff how to debug", stratum: code, hint: it}
+  - {id: p08, q: "numpy broadcasting rules", stratum: code, hint: it, targets: ["numpy.org/doc/stable/user/basics.broadcasting.html"]}
+  - {id: p09, q: "postgresql jsonb gin index", stratum: code, hint: it, targets: ["postgresql.org/docs/current/datatype-json.html", "postgresql.org/docs/current/gin"]}
+  - {id: p10, q: "javascript Array.prototype.flatMap", stratum: code, hint: it, targets: ["developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap"]}
+  - {id: p11, q: "python 3.12 what's new", stratum: code, hint: it, targets: ["docs.python.org/3/whatsnew/3.12.html"]}
+  - {id: p12, q: "sqlite WAL mode concurrent readers writers", stratum: code, hint: it, targets: ["sqlite.org/wal.html"], inject: true}
+  - {id: p13, q: "bash set -euo pipefail explained", stratum: code, hint: q&a}
+  - {id: p14, q: "nginx proxy_pass trailing slash behavior", stratum: code, hint: q&a}
+  - {id: p15, q: "ModuleNotFoundError: No module named 'distutils' python 3.12", stratum: code, hint: q&a, inject: true}
+  # --- science
+  - {id: p16, q: "attention is all you need transformer paper", stratum: science, hint: science, targets: ["arxiv.org/abs/1706.03762"]}
+  - {id: p17, q: "BERT pre-training of deep bidirectional transformers", stratum: science, hint: science, targets: ["arxiv.org/abs/1810.04805"]}
+  - {id: p18, q: "CRISPR Cas9 off-target effects review", stratum: science, hint: science, inject: true}
+  - {id: p19, q: "mRNA vaccine myocarditis risk meta-analysis", stratum: science, hint: science}
+  - {id: p20, q: "graph neural networks survey", stratum: science, hint: science}
+  - {id: p21, q: "AlphaFold highly accurate protein structure prediction", stratum: science, hint: science, targets: ["doi.org/10.1038/s41586-021-03819-2", "nature.com/articles/s41586-021-03819-2"]}
+  - {id: p22, q: "retrieval-augmented generation for knowledge-intensive NLP tasks", stratum: science, hint: science, targets: ["arxiv.org/abs/2005.11401"]}
+  - {id: p23, q: "effect of intermittent fasting on insulin sensitivity randomized trial", stratum: science, hint: science, inject: true}
+  # --- news / recency
+  - {id: p24, q: "SearXNG latest release changes", stratum: news, hint: news}
+  - {id: p25, q: "Python 3.14 release highlights", stratum: news, hint: news}
+  - {id: p26, q: "Linux kernel latest stable release announcement", stratum: news, hint: news}
+  - {id: p27, q: "EU AI Act obligations general purpose AI models timeline", stratum: news, hint: news, inject: true}
+  - {id: p28, q: "James Webb Space Telescope recent discoveries", stratum: news, hint: news}
+  # --- how-to
+  - {id: p29, q: "how to undo the last git commit but keep the changes", stratum: howto, hint: q&a}
+  - {id: p30, q: "how to center a div horizontally and vertically css", stratum: howto, hint: it}
+  - {id: p31, q: "how to make a sourdough starter from scratch", stratum: howto, hint: general, inject: true}
+  - {id: p32, q: "how to compute cosine similarity with numpy", stratum: howto, hint: q&a}
+  - {id: p33, q: "how to remove a stripped screw", stratum: howto, hint: general}
+  - {id: p34, q: "generate a new ssh key and add it to github", stratum: howto, hint: it, targets: ["docs.github.com/en/authentication/connecting-to-github-with-ssh"]}
+  - {id: p35, q: "how to read a file line by line in rust", stratum: howto, hint: q&a}
+  - {id: p36, q: "how to descale an espresso machine with citric acid", stratum: howto, hint: general, inject: true}
+  # --- navigational
+  - {id: p37, q: "searxng documentation", stratum: nav, hint: general, targets: ["docs.searxng.org"]}
+  - {id: p38, q: "pypi httpx", stratum: nav, hint: packages, targets: ["pypi.org/project/httpx"]}
+  - {id: p39, q: "astral uv github", stratum: nav, hint: repos, targets: ["github.com/astral-sh/uv"]}
+  - {id: p40, q: "mdn fetch api", stratum: nav, hint: it, targets: ["developer.mozilla.org/en-US/docs/Web/API/Fetch_API"]}
+  - {id: p41, q: "Ada Lovelace wikipedia", stratum: nav, hint: wikimedia, targets: ["en.wikipedia.org/wiki/Ada_Lovelace"]}
+  - {id: p42, q: "model context protocol specification", stratum: nav, hint: general, targets: ["modelcontextprotocol.io/specification", "spec.modelcontextprotocol.io"]}
+  # --- operator-heavy (including SearXNG syntax that must be escaped)
+  - {id: p43, q: "\"connection reset by peer\" python requests site:github.com", stratum: operator, hint: repos}
+  - {id: p44, q: "asyncio timeout -trio -anyio site:docs.python.org", stratum: operator, hint: it, targets: ["docs.python.org/3/library/asyncio-task.html"]}
+  - {id: p45, q: "transformer architecture survey filetype:pdf", stratum: operator, hint: science}
+  - {id: p46, q: "\"segmentation fault\" core dump gdb backtrace -windows", stratum: operator, hint: q&a}
+  - {id: p47, q: "react useEffect cleanup function site:react.dev", stratum: operator, hint: it, targets: ["react.dev/reference/react/useEffect"]}
+  - {id: p48, q: "pandas <2 DataFrame.append removed", stratum: operator, hint: q&a}
+  - {id: p49, q: "!important css specificity override", stratum: operator, hint: it}
+  # --- Persian and other languages
+  - {id: p50, q: "آموزش پایتون برای مبتدیان", stratum: i18n, hint: general}
+  - {id: p51, q: "تاریخچه دانشگاه تهران", stratum: i18n, hint: wikimedia, targets: ["fa.wikipedia.org/wiki/دانشگاه_تهران"]}
+  - {id: p52, q: "خطای ModuleNotFoundError در پایتون", stratum: i18n, hint: q&a}
+  - {id: p53, q: "غزلیات حافظ", stratum: i18n, hint: general}
+  - {id: p54, q: "نحوه نصب داکر روی اوبونتو", stratum: i18n, hint: it}
+  - {id: p55, q: "فتوسنتز چیست", stratum: i18n, hint: general}
+  - {id: p56, q: "Rechtschreibreform 1996 wichtigste Änderungen", stratum: i18n, hint: general}
+  - {id: p57, q: "как установить python на windows", stratum: i18n, hint: general}
